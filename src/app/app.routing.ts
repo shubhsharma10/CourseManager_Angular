@@ -6,6 +6,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomePageComponent},
   { path: 'course/:courseId', component: CourseViewerComponent},
+  { path: 'course/:courseId/module/:moduleId', component: CourseViewerComponent},
   { path: '**', component: HomePageComponent} // last
 ];
 export const routing = RouterModule.forRoot(appRoutes);
