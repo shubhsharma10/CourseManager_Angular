@@ -6,12 +6,14 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { CourseGridComponent } from './course-grid/course-grid.component';
 import {CourseServiceClient} from './services/course.service.client';
 import {routing} from './app.routing';
+import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    CourseGridComponent
+    CourseGridComponent,
+    CourseViewerComponent
   ],
   imports: [
     BrowserModule,
