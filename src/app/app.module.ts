@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CourseGridComponent } from './course-grid/course-grid.component';
 import {CourseServiceClient} from './services/course.service.client';
+import {routing} from './app.routing';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {CourseServiceClient} from './services/course.service.client';
     CourseGridComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    routing
   ],
   providers: [
     CourseServiceClient
