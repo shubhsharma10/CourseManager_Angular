@@ -9,7 +9,7 @@ app.use(express.static('./dist/cs5610-summer1-angular-ssharma'));
 
 app.get('/*', function(req,res) {
 
-  res.sendFile(path.join('./dist/cs5610-summer1-angular-ssharma/index.html'));
+  res.sendFile(path.join(__dirname,'dist/cs5610-summer1-angular-ssharma/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
