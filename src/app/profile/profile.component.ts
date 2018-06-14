@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {User} from '../models/user.model.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -9,18 +10,28 @@ import {User} from '../models/user.model.client';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private userService: UserServiceClient) { }
+  constructor(private router: Router,
+              private userService: UserServiceClient) { }
   user: User = new User();
   update(user: User) {
     console.log(user);
     this.userService
       .updateProfile(user)
-      .then(result => console.log(result));
+      .then(function(result) {
+       console.log(result);
+      });
+  }
+  logout() {
+    this.userService
+      .logout()
+      .then(() => this.router.navigate(['login']));
   }
   ngOnInit() {
     this.userService
       .profile()
-      .then(user => this.user = user as User);
+      .then((result) => {
+      this.user = result as User;
+      });
   }
 
 }

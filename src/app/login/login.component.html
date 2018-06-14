@@ -4,29 +4,22 @@
 <div class="container mt-5 pt-5">
   <div class="row align-items-center justify-content-center">
     <div class="col">
-      <h1>Register</h1>
+      <h1>Login</h1>
 
-      <input [(ngModel)]="username"
-             type="text"
+      <input [(ngModel)]="user.username"
              placeholder="username"
              class="form-control my-2"/>
-      <input [(ngModel)]="password"
-             type="password"
-             required
+      <input [(ngModel)]="user.password"
              placeholder="password"
-             class="form-control my-2"/>
-      <input [(ngModel)]="password2"
-             type="password"
              required
-             placeholder="verify password"
              class="form-control my-2"/>
-      <button (click)="register(username, password, password2)"
+      <button (click)="login()"
               class="btn btn-primary btn-block my-2">
-        Register
+        Login
       </button>
       <div class="d-flex justify-content-between">
         <button routerLink="/home" class="btn btn-primary">Home</button>
-        <button routerLink="/login" class="btn btn-secondary">Login</button>
+        <button routerLink="/register" class="btn btn-secondary">Register</button>
       </div>
     </div>
   </div>

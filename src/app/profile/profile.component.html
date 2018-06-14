@@ -5,27 +5,32 @@
   <div class="row align-items-center justify-content-center">
     <div class="col">
       <h1>Profile</h1>
-
       <input [(ngModel)]="user.username"
              placeholder="username"
-             class="form-control"/>
+             class="form-control my-2"/>
       <input [(ngModel)]="user.firstName"
              placeholder="first name"
-             class="form-control"/>
+             class="form-control my-2"/>
       <input [(ngModel)]="user.lastName"
              placeholder="lastName"
-             class="form-control"/>
+             class="form-control my-2"/>
       <input [(ngModel)]="user.email"
              placeholder="email"
-             class="form-control"/>
+             class="form-control my-2"/>
+      <input [(ngModel)]="user.phoneNumber"
+             placeholder="333-222-3232"
+             class="form-control my-2"/>
+      <input [(ngModel)]="user.address"
+             placeholder="X Street,Boston,MA"
+             class="form-control my-2"/>
       <button (click)="update(user)"
-              class="btn btn-primary btn-block">
+              class="btn btn-primary btn-block my-2">
         Update
       </button>
 
       <div class="d-flex justify-content-between">
-        <a routerLink="/home">Home</a>
-        <a routerLink="/login">Logout</a>
+        <button routerLink="/home" class="btn btn-primary">Home</button>
+        <button (click)="logout()" class="btn btn-danger">Logout</button>
       </div>
     </div>
   </div>
