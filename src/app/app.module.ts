@@ -15,11 +15,15 @@ import {TopicServiceClient} from './services/topic.service.client';
 import { TopicPillsComponent } from './topic-pills/topic-pills.component';
 import {WidgetServiceClient} from './services/widget.service.client';
 import { WidgetListComponent } from './widget-list/widget-list.component';
+import {FormsModule} from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import {UserServiceClient} from './services/user.service.client';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
+    RegisterComponent,
     CourseGridComponent,
     CourseViewerComponent,
     ModuleListComponent,
@@ -29,6 +33,7 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     routing
   ],
   providers: [
@@ -36,7 +41,8 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
     ModuleServiceClient,
     LessonServiceClient,
     TopicServiceClient,
-    WidgetServiceClient
+    WidgetServiceClient,
+    UserServiceClient
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
+  <a class="navbar-brand" href="">Course Manager</a>
+</nav>
+<div class="container mt-5 pt-5">
+  <div class="row align-items-center justify-content-center">
+    <div class="col">
+      <h1>Register</h1>
+
+      <input [(ngModel)]="username"
+             type="text"
+             placeholder="username"
+             class="form-control my-2"/>
+      <input [(ngModel)]="password"
+             type="password"
+             placeholder="password"
+             class="form-control my-2"/>
+      <input [(ngModel)]="password2"
+             type="password"
+             placeholder="verify password"
+             class="form-control my-2"/>
+      <button (click)="register(username, password, password2)"
+              class="btn btn-primary btn-block my-2">
+        Register
+      </button>
+      <div class="d-flex justify-content-between">
+        <a routerLink="/home">Home</a>
+        <a routerLink="/login">Login</a>
+      </div>
+    </div>
+  </div>
+</div>
