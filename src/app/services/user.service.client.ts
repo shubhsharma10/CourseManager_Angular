@@ -1,16 +1,29 @@
+import * as constants from '../constants/index'
+
 export class UserServiceClient {
 
   findUserById(userId) {
-    return fetch('http://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/user/' + userId)
+    return fetch(constants.USER_API_URL + userId)
       .then(response => response.json());
   }
 
   profile() {
-    return fetch('https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/profile',
+    return fetch(constants.PROFILE_API_URL,
       {
         credentials: 'include', // include, same-origin, *omit
       })
       .then(response => response.json());
+  }
+
+  updateProfile(user) {
+    return fetch(constants.PROFILE_API_URL, {
+      body: JSON.stringify(user),
+      credentials: 'include', // include, same-origin, *omit
+      method: 'put',
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
   }
 
   createUser(username, password) {
@@ -18,7 +31,7 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch('https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/user', {
+    return fetch(constants.USER_API_URL, {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit
       method: 'post',

@@ -13,6 +13,9 @@ export class ProfileComponent implements OnInit {
   user: User = new User();
   update(user: User) {
     console.log(user);
+    this.userService
+      .updateProfile(user)
+      .then(result => console.log(result));
   }
   ngOnInit() {
     this.userService
