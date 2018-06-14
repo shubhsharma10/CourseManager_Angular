@@ -18,6 +18,7 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
 import {FormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import {UserServiceClient} from './services/user.service.client';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {UserServiceClient} from './services/user.service.client';
     ModuleListComponent,
     LessonTabsComponent,
     TopicPillsComponent,
-    WidgetListComponent
+    WidgetListComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
