@@ -29,7 +29,7 @@ export class LessonTabsComponent implements OnInit {
     this.lessonService
       .findAllLessonsForCourseModule(courseId, moduleId)
       .then((lessons) => {
-      this.lessons = lessons;
+      this.lessons = lessons as Lesson[];
       });
   }
   ngOnInit() {

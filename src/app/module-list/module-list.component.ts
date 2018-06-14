@@ -32,7 +32,7 @@ export class ModuleListComponent implements OnInit {
     this.moduleService
       .findAllModulesForCourse(courseId)
       .then((modules) => {
-      this.modules = modules;
+      this.modules = modules as Module[];
       });
   }
 

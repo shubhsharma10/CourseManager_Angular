@@ -16,7 +16,7 @@ export class CourseGridComponent implements OnInit {
   ngOnInit() {
     this.courseService
       .findAllCourses()
-      .then(courses => this.courses = courses);
+      .then(courses => this.courses = courses as Course[]);
   }
 
 }

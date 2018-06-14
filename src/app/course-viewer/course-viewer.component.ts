@@ -18,7 +18,7 @@ export class CourseViewerComponent implements OnInit {
   loadCourse(courseId) {
     this.courseService
       .findCourseById(courseId)
-      .then(course => this.course = course);
+      .then(course => this.course = course as Course);
   }
   ngOnInit() {
   }
