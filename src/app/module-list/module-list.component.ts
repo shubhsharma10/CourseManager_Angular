@@ -21,7 +21,7 @@ export class ModuleListComponent implements OnInit {
 
   setParams(params) {
     const newCourseId =  params['courseId'];
-    if(this.courseId !== newCourseId) {
+    if (this.courseId !== newCourseId) {
       this.courseId = newCourseId;
     }
     this.moduleId = params['moduleId'];
@@ -31,7 +31,9 @@ export class ModuleListComponent implements OnInit {
   loadModules(courseId) {
     this.moduleService
       .findAllModulesForCourse(courseId)
-      .then(modules => this.modules = modules);
+      .then((modules) => {
+      this.modules = modules;
+      });
   }
 
   ngOnInit() {

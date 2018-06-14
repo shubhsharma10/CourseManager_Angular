@@ -1,5 +1,5 @@
-<div class="row pt-5 mt-3">
-  <div class="col-4 mx-2">
+<div class="container-fluid row pt-5 mt-3">
+  <div class="col-4">
     <ul class="list-group">
       <li class="list-group-item active">Modules</li>
       <li [ngClass]="{'activeModule': module.id == moduleId}"  *ngFor="let module of modules"
@@ -8,5 +8,8 @@
           {{module.title}}</a>
       </li>
     </ul>
+  </div>
+  <div class="col-8">
+    <app-lesson-tabs></app-lesson-tabs>
   </div>
 </div>
