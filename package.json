@@ -30,7 +30,9 @@
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
     "express": "^4.16.3",
+    "jquery": "^3.3.1",
     "path": "^0.12.7",
+    "popper.js": "^1.14.3",
     "rxjs": "^6.0.0",
     "typescript": "~2.7.2",
     "zone.js": "^0.8.26"
