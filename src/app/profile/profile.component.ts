@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router,
               private userService: UserServiceClient) { }
   user: User = new User();
-  userNotLoggedIn: false;
+  userNotLoggedIn = false;
   update(user: User) {
     console.log(user);
     this.userService
