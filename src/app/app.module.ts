@@ -20,6 +20,7 @@ import { RegisterComponent } from './register/register.component';
 import {UserServiceClient} from './services/user.service.client';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { SectionListComponent } from './section-list/section-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LoginComponent } from './login/login.component';
     TopicPillsComponent,
     WidgetListComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    SectionListComponent
   ],
   imports: [
     BrowserModule,

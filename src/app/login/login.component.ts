@@ -14,17 +14,27 @@ export class LoginComponent implements OnInit {
               private userService: UserServiceClient) { }
 
   user: User = new User();
+  userLoggedIn = false;
   login() {
     this.userService
       .login(this.user)
-      .then((result) => {
-        console.log(result);
-        this.router.navigate(['profile']);})
+      .then(() => {
+        this.router.navigate(['profile']);
+    })
       .catch((error) => {
-      console.log(error);});
+      console.log(error);
+    });
   }
 
   ngOnInit() {
+    this.userService
+      .profile()
+      .then(() => {
+        this.userLoggedIn = true;
+      })
+      .catch(() => {
+        this.userLoggedIn = false;
+      })
   }
 
 }
