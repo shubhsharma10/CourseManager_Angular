@@ -19,9 +19,14 @@ export class RegisterComponent implements OnInit {
     console.log(password);
     console.log(password2);
     this.userService
-      .createUser(username, password)
-      .then(() =>
-        this.router.navigate(['profile']));
+      .logout()
+      .then(() => {
+        return this.userService
+          .createUser(username, password);
+      })
+      .then(() => {
+        this.router.navigate(['profile']);
+      });
   }
 
   ngOnInit() {
