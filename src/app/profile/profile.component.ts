@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router,
               private userService: UserServiceClient) { }
   user: User = new User();
+  userNotLoggedIn: false;
   update(user: User) {
     console.log(user);
     this.userService
@@ -30,8 +31,11 @@ export class ProfileComponent implements OnInit {
     this.userService
       .profile()
       .then((result) => {
+      this.userNotLoggedIn = false;
       this.user = result as User;
+      })
+      .catch(() => {
+      this.userNotLoggedIn = true;
       });
   }
-
 }
