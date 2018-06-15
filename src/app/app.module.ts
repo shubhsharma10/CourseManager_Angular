@@ -21,6 +21,7 @@ import {UserServiceClient} from './services/user.service.client';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { SectionListComponent } from './section-list/section-list.component';
+import { TopNavbarComponent } from './top-navbar/top-navbar.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SectionListComponent } from './section-list/section-list.component';
     WidgetListComponent,
     ProfileComponent,
     LoginComponent,
-    SectionListComponent
+    SectionListComponent,
+    TopNavbarComponent
   ],
   imports: [
     BrowserModule,
