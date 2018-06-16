@@ -4,6 +4,7 @@ import {Course} from '../models/course.model.client';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {Section} from '../models/section.model.client';
 import {SectionServiceClient} from '../services/section.service.client';
+import {isUndefined} from 'util';
 
 @Component({
   selector: 'app-admin-page',
@@ -20,13 +21,35 @@ export class AdminPageComponent implements OnInit {
   }
   courses: Course[] = [];
   courseId: number;
+  sectionId = 0;
   section: Section = new Section();
+  isSectionSelected = false;
   isCourseSelected = false;
   setParams(params) {
     this.courseId = params['courseId'];
+    if (params['sectionId']) {
+      this.sectionId = params['sectionId'];
+      this.isSectionSelected = true;
+      this.sectionService
+        .findSectionsForCourse(this.courseId)
+        .then((result) => {
+        this.section = (result as Section[]).find(x => x._id === this.sectionId );
+        });
+    } else {
+      this.sectionId = 0;
+      this.isSectionSelected = false;
+      this.section = new Section();
+    }
     if (this.courseId > 0) {
       this.isCourseSelected = true;
     }
+  }
+
+  updateSection() {
+
+  }
+  removeSection() {
+
   }
   createSection() {
     this.section.courseId = this.courseId;

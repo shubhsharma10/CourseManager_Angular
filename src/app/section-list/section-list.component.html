@@ -2,11 +2,11 @@
   <a class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let section of sections">
     <div class="d-flex w-100 justify-content-between flex-nowrap">
       <div class="row px-1">
-        <h6 class="text-center">{{section.name}}</h6>
+        <a routerLink="/admin/course/{{courseId}}/section/{{section._id}}" class="text-center">{{section.name}}</a>
       </div>
       <div class="row px-1">
         <div class="col">
-          <h6 class="text-center">{{section.seats}}</h6>
+            <h6 class="text-center">{{section.seats}}</h6>
           <small>Available seats: {{section.maxSeats}}</small>
         </div>
       </div>

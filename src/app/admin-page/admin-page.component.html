@@ -21,11 +21,27 @@
              [disabled] = "!isCourseSelected"
              required
              class="form-control my-2"/>
-      <button (click)="createSection()"
-              [disabled] = "!isCourseSelected"
-              class="btn btn-primary btn-block my-2">
-        Add Section
-      </button>
+      <div *ngIf="isSectionSelected; then EditOrRemoveSectionTemplate else AddSectionTemplate"></div>
+      <ng-template #AddSectionTemplate>
+        <button (click)="createSection()"
+                [disabled] = "!isCourseSelected"
+                class="btn btn-primary btn-block my-2">
+          Add Section
+        </button>
+      </ng-template>
+      <ng-template #EditOrRemoveSectionTemplate>
+          <button
+                  [disabled] = "!isCourseSelected"
+                  class="btn btn-success btn-block my-2">
+            Update Section
+          </button>
+          <button
+                  [disabled] = "!isCourseSelected"
+                  class="btn btn-danger btn-block my-2">
+            Delete Section
+          </button>
+      </ng-template>
+
     </div>
     <app-section-list></app-section-list>
   </div>

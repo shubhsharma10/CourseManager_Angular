@@ -15,6 +15,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'admin', component: AdminPageComponent, runGuardsAndResolvers: 'always'},
   { path: 'admin/course/:courseId/section', component: AdminPageComponent},
+  { path: 'admin/course/:courseId/section/:sectionId', component: AdminPageComponent},
   { path: 'course/:courseId', component: CourseViewerComponent},
   { path: 'course/:courseId/module/:moduleId', component: CourseViewerComponent},
   { path: 'course/:courseId/module/:moduleId/lesson/:lessonId', component: CourseViewerComponent},
