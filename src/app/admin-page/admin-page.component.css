@@ -1,0 +1,9 @@
+h3{
+  background-color: mediumslateblue;
+  color: white;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.activeCourse {
+  background-color: #9fcdff;
+}

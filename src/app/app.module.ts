@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CourseGridComponent } from './course-grid/course-grid.component';
 import {CourseServiceClient} from './services/course.service.client';
-import {routing} from './app.routing';
+import {AppRoutingModule} from './app.routing';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 import { ModuleListComponent } from './module-list/module-list.component';
 import {ModuleServiceClient} from './services/module.service.client';
@@ -22,6 +22,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { SectionListComponent } from './section-list/section-list.component';
 import { TopNavbarComponent } from './top-navbar/top-navbar.component';
+import {SectionServiceClient} from './services/section.service.client';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +39,13 @@ import { TopNavbarComponent } from './top-navbar/top-navbar.component';
     ProfileComponent,
     LoginComponent,
     SectionListComponent,
-    TopNavbarComponent
+    TopNavbarComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    routing
+    AppRoutingModule
   ],
   providers: [
     CourseServiceClient,
@@ -50,7 +53,8 @@ import { TopNavbarComponent } from './top-navbar/top-navbar.component';
     LessonServiceClient,
     TopicServiceClient,
     WidgetServiceClient,
-    UserServiceClient
+    UserServiceClient,
+    SectionServiceClient
   ],
   bootstrap: [AppComponent]
 })

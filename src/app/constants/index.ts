@@ -22,3 +22,5 @@ export const LOGIN_API_URL =
   'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/login';
 export const LOGOUT_API_URL =
   'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/logout';
+export const COURSE_SECTION_API_URL =
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/course/CID/section';

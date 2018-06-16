@@ -1,0 +1,32 @@
+<div class="container-fluid row pt-5 mt-3">
+  <div class="col-xs-6 col-md-4 mt-1">
+    <ul class="list-group">
+      <h3>Courses</h3>
+      <li [ngClass]="{'activeCourse': course.id == courseId}"  *ngFor="let course of courses"
+          class="list-group-item">
+        <a routerLink="/admin/course/{{course.id}}/section">
+          {{course.title}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-xs-6 col-md-8 mt-1">
+    <h3>Sections</h3>
+    <div class="container-fluid">
+      <input [(ngModel)]="section.name"
+             placeholder="Section Name"
+             [disabled] = "!isCourseSelected"
+             class="form-control my-2"/>
+      <input [(ngModel)]="section.maxSeats"
+             placeholder="Maximum number of seats allowed"
+             [disabled] = "!isCourseSelected"
+             required
+             class="form-control my-2"/>
+      <button (click)="createSection()"
+              [disabled] = "!isCourseSelected"
+              class="btn btn-primary btn-block my-2">
+        Add Section
+      </button>
+    </div>
+    <app-section-list></app-section-list>
+  </div>
+</div>
