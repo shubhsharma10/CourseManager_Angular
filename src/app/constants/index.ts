@@ -15,16 +15,16 @@ export const TOPIC_API_URL =
 export const GEN_TOPIC_API_URL =
   'https://cs5610-summer1-2018-ssharma.herokuapp.com/api/topic';
 export const USER_API_URL =
-  'http://localhost:4000/api/user';
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/user';
 export const PROFILE_API_URL =
-  'http://localhost:4000/api/profile';
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/profile';
 export const SESSION_API_URL =
-  'http://localhost:4000/api/session';
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/session';
 export const LOGIN_API_URL =
-  'http://localhost:4000/api/login';
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/login';
 export const LOGOUT_API_URL =
-  'http://localhost:4000/api/logout';
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/logout';
 export const COURSE_SECTION_API_URL =
-  'http://localhost:4000/api/course/CID/section';
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/course/CID/section';
 export const SECTION_API_URL =
-  'http://localhost:4000/api/section/SID';
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/section/SID';

@@ -28,7 +28,7 @@ export class StudentSectionsComponent implements OnInit {
       });
   }
   enrollInSection(sectionId) {
-    
+    console.log(sectionId);
   }
   ngOnInit() {
   }
