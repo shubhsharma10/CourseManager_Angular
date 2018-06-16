@@ -22,10 +22,16 @@ export class SectionListComponent implements OnInit {
   }
   courseId: number;
   sections: Section[] = [];
+  sectionId: number;
   navigationSubscriptions;
   setParams(params) {
     this.courseId = params['courseId'];
     this.loadSections(this.courseId);
+    if (params['sectionId']) {
+      this.sectionId = params['sectionId'];
+    } else {
+      this.sectionId = 0;
+    }
   }
   loadSections(courseId) {
     this.sectionService

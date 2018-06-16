@@ -15,7 +15,7 @@ export const TOPIC_API_URL =
 export const GEN_TOPIC_API_URL =
   'https://cs5610-summer1-2018-ssharma.herokuapp.com/api/topic';
 export const USER_API_URL =
-  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/user/';
+  'http://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/user/';
 export const PROFILE_API_URL =
   'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/profile';
 export const LOGIN_API_URL =
@@ -24,3 +24,5 @@ export const LOGOUT_API_URL =
   'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/logout';
 export const COURSE_SECTION_API_URL =
   'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/course/CID/section';
+export const SECTION_API_URL =
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/section/SID';

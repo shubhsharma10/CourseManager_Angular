@@ -1,5 +1,6 @@
 <div class="container-fluid">
-  <a class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let section of sections">
+  <a class="list-group-item list-group-item-action flex-column align-items-start"
+     *ngFor="let section of sections">
     <div class="d-flex w-100 justify-content-between flex-nowrap">
       <div class="row px-1">
         <a routerLink="/admin/course/{{courseId}}/section/{{section._id}}" class="text-center">{{section.name}}</a>

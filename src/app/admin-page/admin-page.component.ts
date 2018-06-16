@@ -43,13 +43,30 @@ export class AdminPageComponent implements OnInit {
     if (this.courseId > 0) {
       this.isCourseSelected = true;
     }
+    console.log(this.isSectionSelected);
   }
 
   updateSection() {
-
+    this.sectionService
+      .updateSection(this.sectionId, this.section)
+      .then((result) => {
+        console.log(result);
+        this.router.navigate(['admin/course', this.courseId, 'section', this.sectionId]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
-  removeSection() {
-
+  deleteSection() {
+    this.sectionService
+      .deleteSection(this.sectionId)
+      .then((result) => {
+        console.log(result);
+        this.router.navigate(['admin/course', this.courseId, 'section']);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   createSection() {
     this.section.courseId = this.courseId;
@@ -69,6 +86,9 @@ export class AdminPageComponent implements OnInit {
         if (this.courseId > 0) {
           this.isCourseSelected = true;
         }
+      })
+      .catch(() => {
+        this.isCourseSelected = false;
       });
   }
 

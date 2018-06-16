@@ -1,3 +1,4 @@
+<app-top-navbar></app-top-navbar>
 <div class="container-fluid row pt-5 mt-3">
   <div class="col-xs-6 col-md-4 mt-1">
     <ul class="list-group">
@@ -21,28 +22,27 @@
              [disabled] = "!isCourseSelected"
              required
              class="form-control my-2"/>
-      <div *ngIf="isSectionSelected; then EditOrRemoveSectionTemplate else AddSectionTemplate"></div>
-      <ng-template #AddSectionTemplate>
-        <button (click)="createSection()"
-                [disabled] = "!isCourseSelected"
-                class="btn btn-primary btn-block my-2">
-          Add Section
-        </button>
-      </ng-template>
-      <ng-template #EditOrRemoveSectionTemplate>
-          <button
-                  [disabled] = "!isCourseSelected"
+
+          <button (click)="createSection()"
+                  [disabled]="!(this.isCourseSelected && !this.isSectionSelected)"
+                  class="btn btn-primary btn-block my-2">
+            Add Section
+          </button>
+          <button (click)="updateSection()"
+                  [disabled] = "!(isCourseSelected && isSectionSelected)"
                   class="btn btn-success btn-block my-2">
             Update Section
           </button>
-          <button
-                  [disabled] = "!isCourseSelected"
+          <button (click)="deleteSection()"
+                  [disabled] = "!(isCourseSelected && isSectionSelected)"
                   class="btn btn-danger btn-block my-2">
             Delete Section
           </button>
-      </ng-template>
 
     </div>
     <app-section-list></app-section-list>
   </div>
 </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-bottom justify-content-end">
+  <a routerLink="/profile" class="fa fa-user fa-inverse"></a>
+</nav>
