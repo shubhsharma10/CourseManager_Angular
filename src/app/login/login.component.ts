@@ -15,14 +15,20 @@ export class LoginComponent implements OnInit {
 
   user: User = new User();
   userLoggedIn = false;
+  isLoginFailed = false;
   login() {
     this.userService
       .login(this.user)
-      .then(() => {
-        this.router.navigate(['profile']);
-    })
+      .then((result) => {
+        if (result.status === 401) {
+          this.isLoginFailed = true;
+        } else {
+          this.isLoginFailed = false;
+          this.router.navigate(['profile']);
+        }
+      })
       .catch((error) => {
-      console.log(error);
+        console.log(error);
     });
   }
 

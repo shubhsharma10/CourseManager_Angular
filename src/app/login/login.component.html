@@ -8,6 +8,12 @@
           A user is already logged in. Please logout first!
         </div>
       </ng-template>
+      <div *ngIf="isLoginFailed; then UserLoginFailed"></div>
+      <ng-template #UserLoginFailed>
+        <div class="alert alert-warning" role="alert">
+          Username/password are not correct. Please try again!
+        </div>
+      </ng-template>
       <h1>Login</h1>
       <input [(ngModel)]="user.username"
              [disabled] = "userLoggedIn"
