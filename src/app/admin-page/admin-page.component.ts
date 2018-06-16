@@ -4,7 +4,6 @@ import {Course} from '../models/course.model.client';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {Section} from '../models/section.model.client';
 import {SectionServiceClient} from '../services/section.service.client';
-import {isUndefined} from 'util';
 
 @Component({
   selector: 'app-admin-page',

@@ -24,6 +24,9 @@ export class RegisterComponent implements OnInit {
         return this.userService
           .createUser(username, password);
       })
+      .catch((error) => {
+        console.log(error);
+      })
       .then(() => {
         this.router.navigate(['profile']);
       });
