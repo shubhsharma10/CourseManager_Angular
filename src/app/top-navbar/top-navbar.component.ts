@@ -13,11 +13,19 @@ export class TopNavbarComponent implements OnInit {
   user: User = new User();
   ngOnInit() {
     this.userService
-      .profile()
+      .isUserLoggedIn()
+      .then((result) => {
+        if (result.status === 200) {
+          return this.userService.profile();
+        } else {
+          throw new Error('No user logged in');
+        }
+      })
       .then((result) => {
         this.user = result as User;
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
       });
   }
 

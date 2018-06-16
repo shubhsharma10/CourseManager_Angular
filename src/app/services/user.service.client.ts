@@ -28,10 +28,23 @@ export class UserServiceClient {
       .then(response => response.json());
   }
 
+  isUserLoggedIn() {
+    return fetch(constants.SESSION_API_URL,
+      {
+        credentials: 'include', // include, same-origin, *omit
+        headers: {
+          'content-type': 'application/json'
+        }
+      });
+  }
+
   profile() {
     return fetch(constants.PROFILE_API_URL,
       {
         credentials: 'include', // include, same-origin, *omit
+        headers: {
+          'content-type': 'application/json'
+        }
       })
       .then(response => response.json());
   }

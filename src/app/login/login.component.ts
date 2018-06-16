@@ -35,8 +35,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.userService
       .profile()
-      .then(() => {
-        this.userLoggedIn = true;
+      .then((result) => {
+        if (result.status === 200) {
+          this.userLoggedIn = true;
+        } else {
+          this.userLoggedIn = false;
+        }
       })
       .catch(() => {
         this.userLoggedIn = false;

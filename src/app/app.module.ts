@@ -24,6 +24,7 @@ import { SectionListComponent } from './section-list/section-list.component';
 import { TopNavbarComponent } from './top-navbar/top-navbar.component';
 import {SectionServiceClient} from './services/section.service.client';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { StudentSectionsComponent } from './student-sections/student-sections.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     LoginComponent,
     SectionListComponent,
     TopNavbarComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    StudentSectionsComponent
   ],
   imports: [
     BrowserModule,

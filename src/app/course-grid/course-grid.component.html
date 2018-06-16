@@ -1,10 +1,18 @@
-<div class="pt-5 card-group">
-  <div *ngFor="let course of courses" class="col-sm-2 pt-5 px-3">
-    <div  class="card">
-      <div class="card-body">
-        <a routerLink="/course/{{course.id}}" class="card-title"><h5>{{course.title}}</h5></a>
-        <div class="text-right">
-          <button routerLink="/course/{{course.id}}/section" class="btn btn-primary">Enroll</button>
+<div class="pt-5 container-fluid">
+  <div *ngIf="isUserLoggedIn === 2; then NotLoggedInUser"></div>
+  <ng-template #NotLoggedInUser>
+    <div class="alert alert-warning" role="alert">
+      No User is logged in. Please login first!
+    </div>
+  </ng-template>
+  <div class="card-group">
+    <div *ngFor="let course of courses" class="col-sm-2 pt-5 px-3">
+      <div  class="card">
+        <div class="card-body">
+          <a routerLink="/course/{{course.id}}" class="card-title"><h5>{{course.title}}</h5></a>
+          <div class="text-right">
+            <button (click)="enroll(course.id)" class="btn btn-primary">Enroll</button>
+          </div>
         </div>
       </div>
     </div>

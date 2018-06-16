@@ -30,17 +30,25 @@ export class ProfileComponent implements OnInit {
   }
   ngOnInit() {
     this.userService
-      .profile()
+      .isUserLoggedIn()
       .then((result) => {
-      this.userNotLoggedIn = false;
-      this.user = result as User;
-      console.log(this.user.userType);
-      if (this.user.userType === 'Admin') {
-        this.isAdminUser = true;
-      }
+          if (result.status === 200) {
+            this.userNotLoggedIn = false;
+            return this.userService.profile();
+          } else {
+            this.userNotLoggedIn = true;
+            throw new Error('No user logged in');
+          }
+      })
+      .then((result) => {
+        this.user = result as User;
+        console.log(this.user.userType);
+        if (this.user.userType === 'Admin') {
+          this.isAdminUser = true;
+        }
       })
       .catch(() => {
       this.userNotLoggedIn = true;
-      });
+    });
   }
 }

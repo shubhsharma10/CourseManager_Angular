@@ -6,6 +6,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
 import {AdminPageComponent} from './admin-page/admin-page.component';
 import {NgModule} from '@angular/core';
+import {StudentSectionsComponent} from './student-sections/student-sections.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'admin/course/:courseId/section', component: AdminPageComponent},
   { path: 'admin/course/:courseId/section/:sectionId', component: AdminPageComponent},
   { path: 'course/:courseId', component: CourseViewerComponent},
+  { path: 'course/:courseId/section', component: StudentSectionsComponent},
   { path: 'course/:courseId/module/:moduleId', component: CourseViewerComponent},
   { path: 'course/:courseId/module/:moduleId/lesson/:lessonId', component: CourseViewerComponent},
   { path: 'course/:courseId/module/:moduleId/lesson/:lessonId/topic/:topicId', component: CourseViewerComponent},
