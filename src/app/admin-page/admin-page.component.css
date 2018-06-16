@@ -4,6 +4,12 @@ h3{
   border-radius: 10px;
   padding-left: 10px;
 }
+.list-group-item:hover{
+  background: #9fcdff !important;
+}
+.list-group-item {
+  cursor: pointer;
+}
 .activeCourse {
-  background-color: #9fcdff;
+  background-color: lightblue !important;
 }

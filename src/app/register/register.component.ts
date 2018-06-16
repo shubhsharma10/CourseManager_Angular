@@ -14,22 +14,34 @@ export class RegisterComponent implements OnInit {
   username: string;
   password: string;
   password2: string;
+  isUsernameInUse = false;
+  isPasswordNotSame = false;
   register(username, password, password2){
     console.log(username);
     console.log(password);
     console.log(password2);
-    this.userService
-      .logout()
-      .then(() => {
-        return this.userService
-          .createUser(username, password);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .then(() => {
-        this.router.navigate(['profile']);
-      });
+    if (password !== password2) {
+      this.isPasswordNotSame = true;
+    } else {
+      this.isPasswordNotSame = false;
+      this.userService
+        .createUser(username, password)
+        .then((result) => {
+          if (result.status === 422) {
+            this.isUsernameInUse = true;
+            throw new Error('username already in use');
+          } else {
+            this.isUsernameInUse = false;
+            return this.router.navigate(['profile']);
+          }
+        })
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
   ngOnInit() {

@@ -5,8 +5,11 @@
   background-color: #f2f2f2;
 }
 .list-group-item:hover{
-  background: lightblue !important;
+  background: #9fcdff !important;
 }
-.activeListItem{
-  background-color: #9fcdff;
+.list-group-item {
+  cursor: pointer;
+}
+.activeSection{
+  background-color: lightblue !important ;
 }

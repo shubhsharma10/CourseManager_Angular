@@ -1,7 +1,19 @@
 <app-top-navbar></app-top-navbar>
-<div class="container mt-5 pt-5">
+<div class="container my-5 py-5">
   <div class="row align-items-center justify-content-center">
     <div class="col">
+      <div *ngIf="isUsernameInUse; then UsernameInUse"></div>
+      <ng-template #UsernameInUse>
+        <div class="alert alert-warning" role="alert">
+          Username is already in use. Please choose another username!
+        </div>
+      </ng-template>
+      <div *ngIf="isPasswordNotSame; then DifferentPassword"></div>
+      <ng-template #DifferentPassword>
+        <div class="alert alert-warning" role="alert">
+          Passwords should be same!
+        </div>
+      </ng-template>
       <h1>Register</h1>
 
       <input [(ngModel)]="username"
