@@ -4,8 +4,6 @@ import {CourseViewerComponent} from './course-viewer/course-viewer.component';
 import {RegisterComponent} from './register/register.component';
 import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
-import {SectionListComponent} from './section-list/section-list.component';
-import {AddSectionComponent} from './add-section/add-section.component';
 import {AdminPageComponent} from './admin-page/admin-page.component';
 import {NgModule} from '@angular/core';
 
