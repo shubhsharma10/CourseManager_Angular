@@ -5,8 +5,23 @@
       No User is logged in. Please login first!
     </div>
   </ng-template>
+  <div *ngIf="isUserStudent; then StudentUserCourses"></div>
+  <ng-template #StudentUserCourses>
+    <div class="pt-2 pr-5 container-fluid">
+      <h4>Courses enrolled:</h4>
+      <li
+        *ngFor="let course of enrolledCourses"
+        class="list-group-item">
+        <div class="d-flex w-100 justify-content-between flex-nowrap">
+          <div class="row px-1">
+            <a class="text-center">{{course.title}}</a>
+          </div>
+        </div>
+      </li>
+    </div>
+  </ng-template>
   <div class="card-group">
-    <div *ngFor="let course of courses" class="col-sm-2 pt-5 px-3">
+    <div *ngFor="let course of courses" class="col-sm-2 pt-3 px-3">
       <div  class="card">
         <div class="card-body">
           <a routerLink="/course/{{course.id}}" class="card-title"><h5>{{course.title}}</h5></a>

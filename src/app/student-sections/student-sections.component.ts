@@ -34,6 +34,7 @@ export class StudentSectionsComponent implements OnInit {
       .findSectionsForStudent()
       .then((sections) => {
         this.enrolledSections = sections;
+        console.log(sections);
       });
   }
   isEnrolled(sectionId) {
