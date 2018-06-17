@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {SectionServiceClient} from '../services/section.service.client';
 import {Section} from '../models/section.model.client';
 import {ActivatedRoute} from '@angular/router';
+import {Course} from '../models/course.model.client';
+import {CourseServiceClient} from '../services/course.service.client';
 
 @Component({
   selector: 'app-student-sections',
@@ -11,16 +13,27 @@ import {ActivatedRoute} from '@angular/router';
 export class StudentSectionsComponent implements OnInit {
 
   constructor(private sectionService: SectionServiceClient,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private courseService: CourseServiceClient) {
     this.route.params.subscribe(params => this.setParams(params));
   }
   sections: Section[] = [];
   enrolledSections;
   courseId: number;
+  course: Course = new Course();
   setParams(params) {
     this.courseId = params['courseId'];
+    this.loadDataForPage();
+  }
+  loadDataForPage() {
+    this.loadCourse();
     this.loadSections();
     this.loadEnrolledSections();
+  }
+  loadCourse() {
+    this.courseService
+      .findCourseById(this.courseId)
+      .then(course => this.course = course as Course);
   }
   loadSections() {
     this.sectionService

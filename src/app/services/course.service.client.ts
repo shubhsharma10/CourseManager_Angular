@@ -12,7 +12,7 @@ export class CourseServiceClient {
   }
   findCoursesByIds(courseIdList) {
     courseIdList = courseIdList as Array<number>;
-    let urls: string[] = [];
+    const urls: string[] = [];
     for (let i = 0; i < courseIdList.length; i++) {
       urls.push(constants.COURSE_API_URL + '/' + courseIdList[i]);
     }
