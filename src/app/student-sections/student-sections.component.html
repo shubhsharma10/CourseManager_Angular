@@ -1,5 +1,6 @@
 <app-top-navbar></app-top-navbar>
 <div class="container-fluid py-5 my-3">
+  <h4>Available Sections:</h4>
   <li
     *ngFor="let section of sections"
     class="list-group-item">
@@ -9,14 +10,19 @@
       </div>
       <div class="row px-1">
         <div class="col">
-          <h6 class="text-center">{{section.seats}}</h6>
-          <small>Available seats: {{section.maxSeats}}</small>
+          <h6 class="text-center">Available seats: {{(section.maxSeats-section.seats)}}</h6>
         </div>
       </div>
-      <div class="row px-1">
-        <button class="btn btn-success"
+      <div class="row-2 px-1">
+        <button class="btn btn-primary m-1"
+                [disabled]="isEnrolled(section._id) || ((section.maxSeats-section.seats) <= 0)"
               (click)="enrollInSection(section._id)">
           Enroll
+        </button>
+        <button class="btn btn-danger m-1"
+                [disabled]="!isEnrolled(section._id)"
+                (click)="cancelEnrollmentInSection(section._id)">
+          Withdrawal
         </button>
       </div>
     </div>

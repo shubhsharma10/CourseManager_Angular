@@ -28,3 +28,7 @@ export const COURSE_SECTION_API_URL =
   'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/course/CID/section';
 export const SECTION_API_URL =
   'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/section/SID';
+export const ENROLL_API_URL =
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/section/SID/enroll';
+export const STUDENT_SECTION_API_URL =
+  'https://cs5610-summer1-nodejs-ssharma.herokuapp.com/api/student/section';

@@ -32,4 +32,25 @@ export class SectionServiceClient {
     return fetch(constants.COURSE_SECTION_API_URL.replace('CID', courseId))
       .then(response => response.json());
   }
+  enrollStudentInSection(sectionId) {
+    let url = constants.ENROLL_API_URL.replace('SID',sectionId);
+    return fetch(url, {
+      method: 'post',
+      credentials: 'include'
+    });
+  }
+  cancelStudentEnrollmentInSection(sectionId) {
+    let url = constants.ENROLL_API_URL.replace('SID',sectionId);
+    return fetch(url, {
+      method: 'delete',
+      credentials: 'include'
+    });
+  }
+  findSectionsForStudent() {
+    return fetch(constants.STUDENT_SECTION_API_URL, {
+      method: 'get',
+      credentials: 'include'
+    })
+      .then(response => response.json());
+  }
 }

@@ -24,8 +24,8 @@ export class TopNavbarComponent implements OnInit {
       .then((result) => {
         this.user = result as User;
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        console.log('No user logged in');
       });
   }
 

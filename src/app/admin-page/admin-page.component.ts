@@ -42,29 +42,26 @@ export class AdminPageComponent implements OnInit {
     if (this.courseId > 0) {
       this.isCourseSelected = true;
     }
-    console.log(this.isSectionSelected);
   }
 
   updateSection() {
     this.sectionService
       .updateSection(this.sectionId, this.section)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         this.router.navigate(['admin/course', this.courseId, 'section', this.sectionId]);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        console.log('Update section failed');
       });
   }
   deleteSection() {
     this.sectionService
       .deleteSection(this.sectionId)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         this.router.navigate(['admin/course', this.courseId, 'section']);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        console.log('Delete section failed');
       });
   }
   createSection() {

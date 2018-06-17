@@ -37,8 +37,8 @@ export class CourseGridComponent implements OnInit {
           this.router.navigate(['course', courseId, 'section']);
         }
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        console.log('No user logged in');
       });
   }
   ngOnInit() {

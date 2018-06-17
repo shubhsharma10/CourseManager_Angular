@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {SectionServiceClient} from '../services/section.service.client';
 import {Section} from '../models/section.model.client';
+import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-section-list',
@@ -34,11 +35,15 @@ export class SectionListComponent implements OnInit {
     }
   }
   loadSections(courseId) {
-    this.sectionService
-      .findSectionsForCourse(courseId)
-      .then((result) => {
-      this.sections = result as Section[];
-      });
+    if (courseId) {
+      this.sectionService
+        .findSectionsForCourse(courseId)
+        .then((result) => {
+          this.sections = result as Section[];
+        });
+    } else {
+      console.log('course id not present');
+    }
   }
   ngOnInit() {
   }

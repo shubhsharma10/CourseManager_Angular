@@ -15,10 +15,12 @@ export class StudentSectionsComponent implements OnInit {
     this.route.params.subscribe(params => this.setParams(params));
   }
   sections: Section[] = [];
+  enrolledSections: Section[] = [];
   courseId: number;
   setParams(params) {
     this.courseId = params['courseId'];
     this.loadSections();
+    this.loadEnrolledSections();
   }
   loadSections() {
     this.sectionService
@@ -27,10 +29,54 @@ export class StudentSectionsComponent implements OnInit {
         this.sections = result as Section[];
       });
   }
+  loadEnrolledSections() {
+    this.sectionService
+      .findSectionsForStudent()
+      .then((sections) => {
+        console.log(sections);
+        this.enrolledSections = sections as Section[];
+      });
+  }
+  isEnrolled(sectionId) {
+    const index = this.enrolledSections.findIndex(x => x.section._id === sectionId);
+    return index !== -1;
+  }
   enrollInSection(sectionId) {
-    console.log(sectionId);
+    this.sectionService
+      .enrollStudentInSection(sectionId)
+      .then((result) => {
+        if (result.status === 200) {
+          return result.json();
+        } else {
+          throw new Error('enrollment failed');
+        }
+      })
+      .then(() => {
+          this.loadSections();
+          this.loadEnrolledSections();
+      })
+      .catch(() => {
+        console.log('Enrollment failed');
+      });
   }
-  ngOnInit() {
+  cancelEnrollmentInSection(sectionId) {
+    this.sectionService
+      .cancelStudentEnrollmentInSection(sectionId)
+      .then((result) => {
+        if (result.status === 200) {
+          return true;
+        } else {
+          throw new Error('enrollment withdrawal failed');
+        }
+      })
+      .then(() => {
+        this.loadSections();
+        this.loadEnrolledSections();
+      })
+      .catch(() => {
+        console.log('Enrollment cancellation failed');
+      });
   }
+  ngOnInit() {}
 
 }
