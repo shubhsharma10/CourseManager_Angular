@@ -57,6 +57,7 @@
           <div class="d-flex w-100 justify-content-between flex-nowrap">
             <div class="row px-1">
               <a routerLink="/course/{{course.id}}/section" class="text-center">{{course.title}}</a>
+              <a class="text-center ml-2">{{getSectionsOfCourse(course.id)}}</a>
             </div>
           </div>
         </li>

@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {SectionServiceClient} from '../services/section.service.client';
 import {CourseServiceClient} from '../services/course.service.client';
 import {Course} from '../models/course.model.client';
+import {Section} from '../models/section.model.client';
 
 @Component({
   selector: 'app-profile',
@@ -47,6 +48,15 @@ export class ProfileComponent implements OnInit {
       .catch(() => {
         console.log('Cannot load enrolled courses');
       });
+  }
+  getSectionsOfCourse(courseID) {
+    let sectionNames = '';
+    this.sectionService
+      .findSectionsForCourse(courseID)
+      .then((result) => {
+        sectionNames = (result as Section[]).map(x => x.name).join(' ');
+      });
+    return sectionNames;
   }
   ngOnInit() {
     this.userService
