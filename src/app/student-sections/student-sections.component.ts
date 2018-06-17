@@ -15,7 +15,7 @@ export class StudentSectionsComponent implements OnInit {
     this.route.params.subscribe(params => this.setParams(params));
   }
   sections: Section[] = [];
-  enrolledSections: Section[] = [];
+  enrolledSections;
   courseId: number;
   setParams(params) {
     this.courseId = params['courseId'];
@@ -34,7 +34,7 @@ export class StudentSectionsComponent implements OnInit {
       .findSectionsForStudent()
       .then((sections) => {
         console.log(sections);
-        this.enrolledSections = sections as Section[];
+        this.enrolledSections = sections;
       });
   }
   isEnrolled(sectionId) {
