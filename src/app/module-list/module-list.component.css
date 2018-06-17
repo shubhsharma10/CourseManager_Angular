@@ -1,3 +1,8 @@
 .activeModule {
   background-color: #9fcdff;
 }
+
+.list-group-item {
+  cursor: pointer;
+  margin: 1px;
+}
