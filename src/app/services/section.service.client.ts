@@ -30,10 +30,12 @@ export class SectionServiceClient {
   }
   findSectionsForCourse(courseId) {
     return fetch(constants.COURSE_SECTION_API_URL.replace('CID', courseId))
-      .then(response => response.json());
+      .then((response) => {
+        return response.json();
+    });
   }
   enrollStudentInSection(sectionId) {
-    let url = constants.ENROLL_API_URL.replace('SID',sectionId);
+    let url = constants.ENROLL_API_URL.replace('SID', sectionId);
     return fetch(url, {
       method: 'post',
       credentials: 'include'
@@ -51,6 +53,7 @@ export class SectionServiceClient {
       method: 'get',
       credentials: 'include'
     })
-      .then(response => response.json());
+      .then((response) => {
+      return response.json();});
   }
 }

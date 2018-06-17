@@ -42,7 +42,6 @@ export class AdminPageComponent implements OnInit {
     }
     if (this.courseId > 0) {
       this.isCourseSelected = true;
-      this.section.name = 'Section 1';
     }
   }
 
@@ -84,7 +83,6 @@ export class AdminPageComponent implements OnInit {
         this.courses = courses as Course[];
         if (this.courseId > 0) {
           this.isCourseSelected = true;
-          this.section.name = 'Section 1';
         }
       })
       .catch(() => {

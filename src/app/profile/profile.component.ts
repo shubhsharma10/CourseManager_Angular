@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
               private courseService: CourseServiceClient) { }
   user: User = new User();
   enrolledCourses: Course[] = [];
+  enrolledSections: Section[] = [];
   userNotLoggedIn = false;
   isAdminUser = false;
   update(user: User) {
@@ -39,7 +40,9 @@ export class ProfileComponent implements OnInit {
     this.sectionService
       .findSectionsForStudent()
       .then((result) => {
+        const sectionList = (result as Array<any>).map(x => x.section);
         const courseIdList = (result as Array<any>).map(x => x.section.courseId);
+        this.enrolledSections = sectionList;
         return this.courseService.findCoursesByIds(courseIdList);
       })
       .then((result) => {
@@ -51,11 +54,11 @@ export class ProfileComponent implements OnInit {
   }
   getSectionsOfCourse(courseID) {
     let sectionNames = '';
-    this.sectionService
-      .findSectionsForCourse(courseID)
-      .then((result) => {
-        sectionNames = (result as Section[]).map(x => x.name).join(' ');
-      });
+    for (let i = 0; i < this.enrolledSections.length ; i++) {
+        if (this.enrolledSections[i].courseId === courseID) {
+          sectionNames = sectionNames + ' ' + this.enrolledSections[i].name;
+        }
+    }
     return sectionNames;
   }
   ngOnInit() {
