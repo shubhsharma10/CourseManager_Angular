@@ -1,8 +1,8 @@
 <div class="py-5 container-fluid">
-  <div *ngIf="isUserLoggedIn === 2; then NotLoggedInUser"></div>
+  <div *ngIf="isActiveUserStudent === 2; then NotLoggedInUser"></div>
   <ng-template #NotLoggedInUser>
     <div class="alert alert-warning" role="alert">
-      No User is logged in. Please login first!
+      No Student is logged in. Please login first!
     </div>
   </ng-template>
   <div *ngIf="isUserStudent; then StudentUserCourses"></div>

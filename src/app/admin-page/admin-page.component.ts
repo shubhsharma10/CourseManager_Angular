@@ -38,9 +38,11 @@ export class AdminPageComponent implements OnInit {
       this.sectionId = 0;
       this.isSectionSelected = false;
       this.section = new Section();
+      this.section.name = 'Section 1';
     }
     if (this.courseId > 0) {
       this.isCourseSelected = true;
+      this.section.name = 'Section 1';
     }
   }
 
@@ -71,6 +73,7 @@ export class AdminPageComponent implements OnInit {
       .createSection(this.courseId, this.section)
       .then(() => {
         this.section = new Section();
+        this.section.name = 'Section 1';
         this.router.navigate(['admin/course', this.courseId, 'section']);
       });
   }
@@ -81,6 +84,7 @@ export class AdminPageComponent implements OnInit {
         this.courses = courses as Course[];
         if (this.courseId > 0) {
           this.isCourseSelected = true;
+          this.section.name = 'Section 1';
         }
       })
       .catch(() => {

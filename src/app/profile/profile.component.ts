@@ -39,7 +39,6 @@ export class ProfileComponent implements OnInit {
       .findSectionsForStudent()
       .then((result) => {
         const courseIdList = (result as Array<any>).map(x => x.section.courseId);
-        console.log(courseIdList);
         return this.courseService.findCoursesByIds(courseIdList);
       })
       .then((result) => {
@@ -63,7 +62,6 @@ export class ProfileComponent implements OnInit {
       })
       .then((result) => {
         this.user = result as User;
-        console.log(this.user.userType);
         if (this.user.userType === 'Admin') {
           this.isAdminUser = true;
         }

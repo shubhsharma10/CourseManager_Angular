@@ -18,40 +18,26 @@ export class CourseGridComponent implements OnInit {
               private courseService: CourseServiceClient,
               private userService: UserServiceClient,
               private sectionService: SectionServiceClient) {
-    this.isUserLoggedIn = 0;
+    this.isActiveUserStudent = 0;
   }
 
   courses: Course[] = [];
-  isUserLoggedIn = 0;
   isUserStudent = false;
+  isActiveUserStudent = 0;
   enrolledCourses: Course[] = [];
   enroll(courseId) {
-    this.userService
-      .isUserLoggedIn()
-      .then((result) => {
-        if (result.status === 200) {
-          this.isUserLoggedIn = 1;
-          return this.userService.profile();
-        } else {
-          this.isUserLoggedIn = 2;
-          throw new Error('No user logged in');
-        }
-      })
-      .then((result) => {
-        if (result) {
-          this.router.navigate(['course', courseId, 'section']);
-        }
-      })
-      .catch(() => {
-        console.log('No user logged in');
-      });
+    if (this.isUserStudent) {
+      this.isActiveUserStudent = 1;
+      this.router.navigate(['course', courseId, 'section']);
+    } else {
+      this.isActiveUserStudent = 2;
+    }
   }
   loadEnrolledCourses() {
     this.sectionService
       .findSectionsForStudent()
       .then((result) => {
         const courseIdList = (result as Array<any>).map(x => x.section.courseId);
-        console.log(courseIdList);
         return this.courseService.findCoursesByIds(courseIdList);
       })
       .then((result) => {
