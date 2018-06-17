@@ -13,3 +13,9 @@
 .activeSection{
   background-color: lightblue !important ;
 }
+h4 {
+  color: #007BFF;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+}

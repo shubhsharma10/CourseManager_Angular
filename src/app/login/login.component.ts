@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.userService
-      .profile()
+      .isUserLoggedIn()
       .then((result) => {
         if (result.status === 200) {
           this.userLoggedIn = true;

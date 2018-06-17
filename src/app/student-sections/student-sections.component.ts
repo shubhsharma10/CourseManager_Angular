@@ -33,13 +33,16 @@ export class StudentSectionsComponent implements OnInit {
     this.sectionService
       .findSectionsForStudent()
       .then((sections) => {
-        console.log(sections);
         this.enrolledSections = sections;
       });
   }
   isEnrolled(sectionId) {
-    const index = this.enrolledSections.findIndex(x => x.section._id === sectionId);
-    return index !== -1;
+    if (this.enrolledSections) {
+      const index = this.enrolledSections.findIndex(x => x.section._id === sectionId);
+      return index !== -1;
+    } else {
+      return false;
+    }
   }
   enrollInSection(sectionId) {
     this.sectionService

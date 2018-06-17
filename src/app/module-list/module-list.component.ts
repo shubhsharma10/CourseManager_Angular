@@ -29,11 +29,13 @@ export class ModuleListComponent implements OnInit {
   }
 
   loadModules(courseId) {
-    this.moduleService
-      .findAllModulesForCourse(courseId)
-      .then((modules) => {
-      this.modules = modules as Module[];
-      });
+    if (courseId) {
+      this.moduleService
+        .findAllModulesForCourse(courseId)
+        .then((modules) => {
+          this.modules = modules as Module[];
+        });
+    }
   }
 
   ngOnInit() {

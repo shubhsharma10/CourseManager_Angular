@@ -26,11 +26,13 @@ export class LessonTabsComponent implements OnInit {
     this.loadLessons(this.courseId, this.moduleId);
   }
   loadLessons(courseId, moduleId) {
-    this.lessonService
-      .findAllLessonsForCourseModule(courseId, moduleId)
-      .then((lessons) => {
-      this.lessons = lessons as Lesson[];
-      });
+    if (courseId && moduleId) {
+      this.lessonService
+        .findAllLessonsForCourseModule(courseId, moduleId)
+        .then((lessons) => {
+          this.lessons = lessons as Lesson[];
+        });
+    }
   }
   ngOnInit() {
   }

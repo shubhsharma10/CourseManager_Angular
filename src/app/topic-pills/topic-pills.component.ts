@@ -27,9 +27,11 @@ export class TopicPillsComponent implements OnInit {
     this.loadTopics(this.courseId, this.moduleId, this.lessonId);
   }
   loadTopics(cid, mid, lid) {
-    this.topicService
-      .findAllTopicsForLesson(cid, mid, lid)
-      .then(topics => this.topics = topics as Topic[]);
+    if (cid && mid && lid) {
+      this.topicService
+        .findAllTopicsForLesson(cid, mid, lid)
+        .then(topics => this.topics = topics as Topic[]);
+    }
   }
   ngOnInit() {
   }

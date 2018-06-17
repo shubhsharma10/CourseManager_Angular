@@ -1,6 +1,6 @@
 <app-top-navbar></app-top-navbar>
 <div class="container-fluid py-5 my-3">
-  <h4>Available Sections:</h4>
+  <h4>Sections:</h4>
   <li
     *ngFor="let section of sections"
     class="list-group-item">
@@ -22,7 +22,7 @@
         <button class="btn btn-danger m-1"
                 [disabled]="!isEnrolled(section._id)"
                 (click)="cancelEnrollmentInSection(section._id)">
-          Withdrawal
+          Withdraw
         </button>
       </div>
     </div>

@@ -22,13 +22,15 @@ export class WidgetListComponent implements OnInit {
     this.loadWidgets(this.topicId);
   }
   loadWidgets(topicId) {
-    this.widgetService
-      .findAllWidgetsForTopic(topicId)
-      .then((widgets) => {
-      const newWidgets = widgets as Widget[];
-      newWidgets.sort((a, b) => a.widgetOrder - b.widgetOrder);
-      this.widgets = newWidgets;
-      });
+    if (topicId) {
+      this.widgetService
+        .findAllWidgetsForTopic(topicId)
+        .then((widgets) => {
+          const newWidgets = widgets as Widget[];
+          newWidgets.sort((a, b) => a.widgetOrder - b.widgetOrder);
+          this.widgets = newWidgets;
+        });
+    }
   }
   ngOnInit() {
   }
