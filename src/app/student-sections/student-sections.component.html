@@ -4,14 +4,12 @@
   <li
     *ngFor="let section of sections"
     class="list-group-item">
-    <div class="d-flex w-100 justify-content-between flex-nowrap">
+    <div class="d-flex w-100 justify-content-between flex-wrap">
       <div class="row px-1 justify-content-center">
         <a class="text-center">{{section.name}}</a>
       </div>
-      <div class="row px-1">
-        <div class="col">
-          <h6 class="text-center">Available seats: {{(section.maxSeats-section.seats)}}</h6>
-        </div>
+      <div class="row mx-1 px-1">
+          <a class="text-center">Available seats: {{(section.maxSeats-section.seats)}}</a>
       </div>
       <div class="row-2 px-1">
         <button class="btn btn-primary m-1"
