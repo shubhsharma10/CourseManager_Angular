@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {User} from '../models/user.model.client';
 import {Router} from '@angular/router';
+import {SectionServiceClient} from '../services/section.service.client';
+import {CourseServiceClient} from '../services/course.service.client';
+import {Course} from '../models/course.model.client';
 
 @Component({
   selector: 'app-profile',
@@ -11,8 +14,11 @@ import {Router} from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   constructor(private router: Router,
-              private userService: UserServiceClient) { }
+              private userService: UserServiceClient,
+              private sectionService: SectionServiceClient,
+              private courseService: CourseServiceClient) { }
   user: User = new User();
+  enrolledCourses: Course[] = [];
   userNotLoggedIn = false;
   isAdminUser = false;
   update(user: User) {
@@ -27,6 +33,21 @@ export class ProfileComponent implements OnInit {
     this.userService
       .logout()
       .then(() => this.router.navigate(['login']));
+  }
+  loadEnrolledCourses() {
+    this.sectionService
+      .findSectionsForStudent()
+      .then((result) => {
+        const courseIdList = (result as Array<any>).map(x => x.section.courseId);
+        console.log(courseIdList);
+        return this.courseService.findCoursesByIds(courseIdList);
+      })
+      .then((result) => {
+        this.enrolledCourses = result as Course[];
+      })
+      .catch(() => {
+        console.log('Cannot load enrolled courses');
+      });
   }
   ngOnInit() {
     this.userService
@@ -49,6 +70,7 @@ export class ProfileComponent implements OnInit {
       })
       .catch(() => {
       this.userNotLoggedIn = true;
-    });
+      });
+    this.loadEnrolledCourses();
   }
 }
