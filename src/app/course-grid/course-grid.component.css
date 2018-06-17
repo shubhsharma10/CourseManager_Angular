@@ -9,9 +9,17 @@
 }
 .list-group-item {
   cursor: pointer;
+  border-radius: 15px;
+  margin: 1px;
 }
 .activeSection{
   background-color: lightblue !important ;
+}
+.card:hover{
+  background: #9fcdff !important;
+}
+.card {
+  cursor: pointer;
 }
 h4 {
   color: #007BFF;

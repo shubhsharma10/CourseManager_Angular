@@ -7,7 +7,7 @@
   </ng-template>
   <div *ngIf="isUserStudent; then StudentUserCourses"></div>
   <ng-template #StudentUserCourses>
-    <div class="pt-2 pr-5 container-fluid">
+    <div class="pt-3 pr-5 container-fluid">
       <h4>Courses enrolled:</h4>
       <li
         *ngFor="let course of enrolledCourses"
