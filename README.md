@@ -16,6 +16,7 @@
 ## Functionalities:
 - Top nav bar shows logged in user name and clicking on it takes to Profile page
 - Bottom nav bar shows user icon which also takes to Profile page
+- Clicking on Course Manager text in top nav bar at any page takes to Home page.
 - When user is logged in, he can see courses enrolled at Home page and course with sections
   on Profile page.
 - When admin is logged in, Admin button will be enabled on Admin profile page, which 
