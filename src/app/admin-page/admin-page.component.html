@@ -14,14 +14,22 @@
   </div>
   <div class="col-xs-6 col-md-8 mt-1">
     <h3>Sections</h3>
+    <div *ngIf="!canUpdate; then CannotUpdate"></div>
+    <ng-template #CannotUpdate>
+      <div class="alert alert-info" role="alert">
+        Max seats is less than enrolled seats. It should be equal or more!
+      </div>
+    </ng-template>
     <div class="container-fluid">
       <input [(ngModel)]="section.name"
              placeholder="Section Name"
              [disabled] = "!isCourseSelected"
              class="form-control my-2"/>
       <input [(ngModel)]="section.maxSeats"
+             min="{{section.seats}}"
+             type="number"
              placeholder="Maximum number of seats allowed"
-             [disabled] = "!isCourseSelected"
+             [disabled] = "!isCourseSelected && canUpdate"
              required
              class="form-control my-2"/>
 

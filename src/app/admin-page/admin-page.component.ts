@@ -24,6 +24,7 @@ export class AdminPageComponent implements OnInit {
   section: Section = new Section();
   isSectionSelected = false;
   isCourseSelected = false;
+  canUpdate = true;
   setParams(params) {
     this.courseId = params['courseId'];
     if (params['sectionId']) {
@@ -46,14 +47,21 @@ export class AdminPageComponent implements OnInit {
   }
 
   updateSection() {
-    this.sectionService
-      .updateSection(this.sectionId, this.section)
-      .then(() => {
-        this.router.navigate(['admin/course', this.courseId, 'section', this.sectionId]);
-      })
-      .catch(() => {
-        console.log('Update section failed');
-      });
+    const maxSeats = this.section.maxSeats;
+    const minSeats = this.section.seats;
+    if (maxSeats < minSeats) {
+      this.canUpdate = false;
+    } else {
+      this.canUpdate = true;
+      this.sectionService
+        .updateSection(this.sectionId, this.section)
+        .then(() => {
+          this.router.navigate(['admin/course', this.courseId, 'section', this.sectionId]);
+        })
+        .catch(() => {
+          console.log('Update section failed');
+        });
+    }
   }
   deleteSection() {
     this.sectionService
