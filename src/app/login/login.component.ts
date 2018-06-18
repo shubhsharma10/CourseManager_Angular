@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       })
       .catch(() => {
         this.userLoggedIn = false;
-      })
+      });
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {User} from '../models/user.model.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-top-navbar',
@@ -9,9 +10,24 @@ import {User} from '../models/user.model.client';
 })
 export class TopNavbarComponent implements OnInit {
 
-  constructor(private userService: UserServiceClient) { }
+  constructor(private userService: UserServiceClient,
+              private router: Router) { }
   user: User = new User();
   isUserLoggedIn = false;
+  pollServer() {
+    setTimeout(() => {
+      this.userService
+        .isUserLoggedIn()
+        .then((result) => {
+          if (result.status !== 200) {
+            this.router.navigate(['home']);
+            return;
+          } else {
+            this.pollServer();
+          }
+        });
+      }, 1805000);
+  }
   ngOnInit() {
     this.userService
       .isUserLoggedIn()
@@ -25,11 +41,11 @@ export class TopNavbarComponent implements OnInit {
         }
       })
       .then((result) => {
-        this.user = result as User;
+          this.pollServer();
+          this.user = result as User;
       })
       .catch(() => {
         console.log('No user logged in');
       });
   }
-
 }
