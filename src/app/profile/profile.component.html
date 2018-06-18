@@ -41,7 +41,11 @@
 
       <div class="d-flex justify-content-between">
         <button routerLink="/home" class="btn btn-primary">Home</button>
-        <button [disabled] = "!isAdminUser" routerLink="/admin" class="btn btn-primary">Admin</button>
+        <div *ngIf="isAdminUser; then AdminPageLink"></div>
+        <ng-template #AdminPageLink>
+          <button [disabled] = "!isAdminUser" routerLink="/admin" class="btn btn-primary">Admin</button>
+        </ng-template>
+
         <button [disabled] = "userNotLoggedIn" (click)="logout()" class="btn btn-danger">Logout</button>
       </div>
     </div>
