@@ -5,6 +5,12 @@
 
 ## NodeJS server repo:
 - https://github.com/shubhsharma10/cs5610-summer1-nodejs-ssharma
+- https://cs5610-summer1-nodejs-ssharma.herokuapp.com/
+
+## Important:
+- Ensure that you are using <b>https</b> not <b>http</b> while opening the angular app
+- Angular app deployed on Heroku has some issue in <b>Firefox and Safari</b>. I am not sure why,
+  however it works fine on <b>Chrome</b> browser.
 
 ## Workflow:
 - To see course/module/lesson/topic/widgets flow with data Follow below path:
@@ -22,6 +28,10 @@
 - When admin is logged in, Admin button will be enabled on Admin profile page, which 
   goes to Admin page for adding, updating section and deleting section.
 - If a section is selected for update, Add Section button is disabled and Update,Delete enabled.
+- If Admin deletes a section in which students are enrolled, then all enrollments which belong to that section
+  will be deleted.
+- When Admin changes section seats, he is not allowed to enter max seats less than enrolled number of students
+  in that section.
 - If no section is selected, then Add Section is enabled.
 - User can only enroll if he is Student i.e. Anonymous user and Admin user can't enroll.
 - Student can enroll or withdraw from sections page.
