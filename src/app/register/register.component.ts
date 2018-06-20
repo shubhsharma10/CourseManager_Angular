@@ -15,11 +15,15 @@ export class RegisterComponent implements OnInit {
   password: string;
   password2: string;
   isUsernameInUse = false;
+  isValidUserNamePassword = true;
   isPasswordNotSame = false;
   register(username, password, password2){
-    console.log(username);
-    console.log(password);
-    console.log(password2);
+    if (!username || !password || !password2) {
+      this.isValidUserNamePassword = false;
+      return;
+    } else {
+      this.isValidUserNamePassword = true;
+    }
     if (password !== password2) {
       this.isPasswordNotSame = true;
     } else {

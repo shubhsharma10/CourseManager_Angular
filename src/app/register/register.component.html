@@ -2,6 +2,12 @@
 <div class="container my-5 py-5">
   <div class="row align-items-center justify-content-center">
     <div class="col">
+      <div *ngIf="!isValidUserNamePassword; then InvalidUsernamePassword"></div>
+      <ng-template #InvalidUsernamePassword>
+        <div class="alert alert-danger" role="alert">
+          Please enter valid username and password!
+        </div>
+      </ng-template>
       <div *ngIf="isUsernameInUse; then UsernameInUse"></div>
       <ng-template #UsernameInUse>
         <div class="alert alert-warning" role="alert">
