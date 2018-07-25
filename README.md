@@ -1,7 +1,7 @@
-# CS5610 - Course Manager - Angular Front end - Shubham Sharma
+# Course Manager front end for Students where they can see course, course content and enroll in sections.
 
 ## Angular front end:
-- Hosted at: https://cs5610-summer1-angular-ssharma.herokuapp.com/
+- Hosted at: https://course-manager-angular-ssharma.herokuapp.com/
 
 ## NodeJS server repo:
 - https://github.com/shubhsharma10/cs5610-summer1-nodejs-ssharma
@@ -15,7 +15,7 @@
 ## Workflow:
 - To see course/module/lesson/topic/widgets flow with data Follow below path:
 - CS5610(Course) -> React(Module) -> State(Lesson) -> Topic 2(Topic)
-- You can also go to https://cs5610-summer1-react-ssharma.herokuapp.com/ and
+- You can also go to https://course-manager-react-ssharma.herokuapp.com/ and
   more data, however that is work in progress as I am including MaterialUI on that,
   so dialog box have extra space around them.
 
