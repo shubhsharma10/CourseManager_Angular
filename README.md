@@ -8,9 +8,7 @@
 - https://cs5610-summer1-nodejs-ssharma.herokuapp.com/
 
 ## Important:
-- Ensure that you are using <b>https</b> not <b>http</b> while opening the angular app
-- Angular app deployed on Heroku has some issue in <b>Firefox and Safari</b>. I am not sure why,
-  however it works fine on <b>Chrome</b> browser.
+- Due to third party cookie used for storing user session, please ensure that third party cookies are accepted in your browser settings.
 
 ## Workflow:
 - To see course/module/lesson/topic/widgets flow with data Follow below path:
